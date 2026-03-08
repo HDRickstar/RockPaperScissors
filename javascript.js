@@ -71,6 +71,8 @@ function playGame(){
         let computerSelection = getComputerChoice(); 
         console.log(playRound(humanSelection,computerSelection));        
     }
+    console.log("human score: " + humanScore);
+    console.log("computer score: " + computerScore);
 }
 
 playGame();
