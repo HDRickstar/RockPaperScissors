@@ -49,10 +49,10 @@ function playRound(humanChoice, computerChoice){
     if(lowerCaseHuman == "paper" && lowerCaseComputer == "scissors" ){
         computerScore++;
     }
-    if(lowerCaseHuman == "rock" && lowerCaseComputer == "paper" ){
+    if(lowerCaseHuman == "scissors" && lowerCaseComputer == "rock" ){
         computerScore++;
     }
-    if(lowerCaseHuman == "rock" && lowerCaseComputer == "scissors" ){
+    if(lowerCaseHuman == "scissors" && lowerCaseComputer == "paper" ){
         humanScore++;
     }
     
@@ -82,6 +82,15 @@ const rockMove = document.querySelector(".btn-rock");
 const paperMove = document.querySelector(".btn-paper");
 const scissorsMove = document.querySelector(".btn-scissors");
 const results = document.querySelector(".results");
+const playerWins = document.querySelector(".player-score");
+const computerWins = document.querySelector(".computer-score");
+
+const playerCurrScore = document.createElement("p");
+playerWins.appendChild(playerCurrScore);
+
+const computerCurrScore = document.createElement("p");
+computerWins.appendChild(computerCurrScore);
+
 
 const gameResult = document.createElement("p");
 results.appendChild(gameResult);
@@ -89,8 +98,11 @@ results.appendChild(gameResult);
 rockMove.addEventListener("click",function(){
     let humanMove = "rock";
     let result = playRound(humanMove, getComputerChoice())
-
     gameResult.textContent = result;
+
+    playerCurrScore.textContent = humanScore;
+    computerCurrScore.textContent = computerScore;
+
 });
 
 paperMove.addEventListener("click",function(){
