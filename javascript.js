@@ -83,31 +83,29 @@ const paperMove = document.querySelector(".btn-paper");
 const scissorsMove = document.querySelector(".btn-scissors");
 const results = document.querySelector(".results");
 
+const gameResult = document.createElement("p");
+results.appendChild(gameResult);
 
 rockMove.addEventListener("click",function(){
     let humanMove = "rock";
     let result = playRound(humanMove, getComputerChoice())
 
-    const gameResult = document.createElement("p");
     gameResult.textContent = result;
-    results.appendChild(gameResult);
 });
 
 paperMove.addEventListener("click",function(){
     let humanMove = "paper";
     let result = playRound(humanMove, getComputerChoice())
 
-    const gameResult = document.createElement("p");
     gameResult.textContent = result;
-    results.appendChild(gameResult);
+
 });
 
 scissorsMove.addEventListener("click",function(){
     let humanMove = "scissors";
     let result = playRound(humanMove, getComputerChoice())
 
-    const gameResult = document.createElement("p");
     gameResult.textContent = result;
-    results.appendChild(gameResult);
+
 });
 
