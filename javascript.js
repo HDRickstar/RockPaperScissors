@@ -84,6 +84,10 @@ const scissorsMove = document.querySelector(".btn-scissors");
 const results = document.querySelector(".results");
 const playerWins = document.querySelector(".player-score");
 const computerWins = document.querySelector(".computer-score");
+const finalWinner = document.querySelector(".winner");
+
+const victor = document.createElement("p");
+finalWinner.appendChild(victor);
 
 const playerCurrScore = document.createElement("p");
 playerWins.appendChild(playerCurrScore);
@@ -99,25 +103,50 @@ rockMove.addEventListener("click",function(){
     let humanMove = "rock";
     let result = playRound(humanMove, getComputerChoice())
     gameResult.textContent = result;
+    let checkEndingCondition = endingCondition(humanScore,computerScore);
 
-    playerCurrScore.textContent = humanScore;
-    computerCurrScore.textContent = computerScore;
+    playerCurrScore.textContent = "human score: " + humanScore;
+    computerCurrScore.textContent = "computer score: " + computerScore;
+
+    victor.textContent = checkEndingCondition;
 
 });
 
 paperMove.addEventListener("click",function(){
     let humanMove = "paper";
     let result = playRound(humanMove, getComputerChoice())
+    let checkEndingCondition = endingCondition(humanScore,computerScore);
 
     gameResult.textContent = result;
 
+    playerCurrScore.textContent = "human score: " + humanScore;
+    computerCurrScore.textContent = "computer score: " + computerScore;
+
+    victor.textContent = checkEndingCondition;
 });
 
 scissorsMove.addEventListener("click",function(){
     let humanMove = "scissors";
     let result = playRound(humanMove, getComputerChoice())
 
+    let checkEndingCondition = endingCondition(humanScore,computerScore);
+
     gameResult.textContent = result;
+    playerCurrScore.textContent = "human score: " + humanScore;
+    computerCurrScore.textContent = "computer score: " + computerScore;
+
+    victor.textContent = checkEndingCondition;
 
 });
 
+
+function endingCondition(humanFinalScore,computerFinalScore){
+    if(humanFinalScore >= 5 && humanFinalScore > computerFinalScore){
+        return "human wins!!";
+    } else if(computerFinalScore >= 5 && computerFinalScore > humanFinalScore){
+        return "computer wins!!";
+    }
+    else{
+        return "First to 5 points wins!!";
+    }
+}
