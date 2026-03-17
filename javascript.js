@@ -24,7 +24,7 @@ function getHumanChoice(){
     return input;
 }
 
-console.log(getHumanChoice());
+//console.log(getHumanChoice());
 
 function playRound(humanChoice, computerChoice){
     let lowerCaseHuman = humanChoice.toLowerCase();
@@ -75,4 +75,39 @@ function playGame(){
     console.log("computer score: " + computerScore);
 }
 
-playGame();
+//playGame();
+//start of UI Implementation
+
+const rockMove = document.querySelector(".btn-rock");
+const paperMove = document.querySelector(".btn-paper");
+const scissorsMove = document.querySelector(".btn-scissors");
+const results = document.querySelector(".results");
+
+
+rockMove.addEventListener("click",function(){
+    let humanMove = "rock";
+    let result = playRound(humanMove, getComputerChoice())
+
+    const gameResult = document.createElement("p");
+    gameResult.textContent = result;
+    results.appendChild(gameResult);
+});
+
+paperMove.addEventListener("click",function(){
+    let humanMove = "paper";
+    let result = playRound(humanMove, getComputerChoice())
+
+    const gameResult = document.createElement("p");
+    gameResult.textContent = result;
+    results.appendChild(gameResult);
+});
+
+scissorsMove.addEventListener("click",function(){
+    let humanMove = "scissors";
+    let result = playRound(humanMove, getComputerChoice())
+
+    const gameResult = document.createElement("p");
+    gameResult.textContent = result;
+    results.appendChild(gameResult);
+});
+
