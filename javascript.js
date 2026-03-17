@@ -87,16 +87,20 @@ const computerWins = document.querySelector(".computer-score");
 const finalWinner = document.querySelector(".winner");
 
 const victor = document.createElement("p");
+victor.textContent = "First to 5 points wins"
 finalWinner.appendChild(victor);
 
 const playerCurrScore = document.createElement("p");
+playerCurrScore.textContent = "human score: " + humanScore;
 playerWins.appendChild(playerCurrScore);
 
 const computerCurrScore = document.createElement("p");
+computerCurrScore.textContent = "computer score: " + computerScore;
 computerWins.appendChild(computerCurrScore);
 
 
 const gameResult = document.createElement("p");
+gameResult.textContent = "Make your move!!!"
 results.appendChild(gameResult);
 
 rockMove.addEventListener("click",function(){
